@@ -47,6 +47,7 @@ SELECT @@VERSION
 ```
 
 ### 2.3 确认当前数据库默认安装版本及默认安装文件目录,请根据自己版本记录数据库默认安装目录。
+
 - (SQLServer Service) 默认安装目录：
   - SQL Server 2008 C:\Program Files\Microsoft SQL Server\100\Setup Bootstrap\Release
   - SQL Server 2012 C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012
