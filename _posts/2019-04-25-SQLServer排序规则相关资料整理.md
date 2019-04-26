@@ -80,7 +80,11 @@ Setup /QUIET
 
 - 注意: accounts 用户使用电脑管理员用户，CollationName 为需要变更的排序格式
 
-### 2.7 启动SQLServer服务，在命令行窗口输入：net start mssqlserver
+### 2.7 启动SQLServer服务
+
+```bat
+net start mssqlserver
+```
 
 ## 3. 修改数据库排序规则
 
