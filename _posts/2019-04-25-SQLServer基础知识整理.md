@@ -51,6 +51,14 @@ tags:
 | 2005、2008、2008 R2、2014、2016 |    Windows    | 2005-2016 |
 |            2017             | Windows、Linux |   2017    |
 
+- SQL Server的版本号
+  - 8.0 -> sql server 2000
+  - 9.0 -> sql server 2005
+  - 10.0 -> sql server 2008
+  - 10.5 -> sql server 2008 R2
+  - 11.0 -> sql server 2012
+  - 12.0 -> sql server 2014
+
 ### 2. 连接方式
 
 `ODBC、JDBC、BDE、OLE DB、ADO.NET`
