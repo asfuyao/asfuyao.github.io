@@ -46,7 +46,7 @@ sudo reboot
 sudo wget -qO- get.docker.com | bash
 ```
 
-## 5. 添加用户到docker组
+## 5. 把当前用户添加到docker组
 
 ```shell
 sudo usermod -aG docker 用户名
@@ -58,7 +58,7 @@ sudo usermod -aG docker 用户名
 sudo systemctl enable docker
 ```
 
-## 7. 使用新用户登录，获取shadowsocks和kcptun官方镜像
+## 7. 注销重新登录，获取shadowsocks和kcptun官方镜像
 
 ```shell
 docker pull shadowsocks/shadowsocks-libev
