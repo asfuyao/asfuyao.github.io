@@ -14,7 +14,23 @@ tags:
 
 >SQL Server 运维知识库
 
-# 日志清理
+# 数据库维护
+
+## 查看版本号
+
+```sql
+SELECT @@VERSION
+```
+
+## 通过脚本附加数据库
+
+```sql
+EXEC sp_attach_db @dbname = N'DATA',
+                  @filename1 = N'C:\XXDATA\DATA_data.mdf',
+                  @filename2 = N'C:\XXDATA\DATA_log.ldf';
+```
+
+## 日志清理，适用于2008以上版本
 
 ```sql
 USE [master]
