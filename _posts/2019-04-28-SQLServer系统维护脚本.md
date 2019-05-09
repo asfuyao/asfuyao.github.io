@@ -80,3 +80,40 @@ SELECT file_id,name from sys.database_files;
     AND  a.is_ms_shipped = 0  --是否为系统脚本，0为用户脚本
     AND  LEFT(name, 3) NOT IN ('SP_', 'XP_')  --可通过名称过滤，例如过滤SP和XP开头的存储过程
 ```
+
+## 修改用户自定义表类型
+
+```sql
+USE [TZToolDB]
+GO
+--首先要重命名表类型
+EXEC sys.sp_rename 'tt_ToolStockInDetail','tt_ToolStockInDetail_bak'
+
+--建立新的表类型
+CREATE TYPE [dbo].[tt_ToolStockInDetail] AS TABLE(
+	[SortID] [BIGINT] NOT NULL,
+	[ToolNumber] [dbo].[ToolNumber] NOT NULL,
+	[SerialNo] [dbo].[SerialNo] NOT NULL,
+	[WarehouseID] [INT] NOT NULL,
+	[Amount] [INT] NOT NULL,
+	[QCDate] NVARCHAR(20) NULL,
+	[Remark] [dbo].[Remark] NULL,
+	PRIMARY KEY CLUSTERED 
+(
+	[ToolNumber] ASC
+)WITH (IGNORE_DUP_KEY = OFF)
+)
+GO
+
+--查询所有引用此表类型的存储过程、视图、函数
+SELECT     a.name, a.type, b.definition
+FROM       sys.sysobjects a
+INNER JOIN sys.sql_modules b ON a.id = b.object_id
+WHERE      a.type IN ('P', 'V', 'FN')
+  AND      b.definition LIKE ( '%tt_ToolStockInDetail%' );
+
+--用修改方式打开这些存储过程、视图、函数，执行变更，即不需要改变内容，只是用alter方式执行修改即可
+
+--删除原表类型
+DROP TYPE dbo.tt_ToolStockInDetail_bak
+```
