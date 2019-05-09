@@ -87,7 +87,7 @@ BEGIN TRY
                     ELSE
                       UPPER(tp.name)
                       + CASE
-                          WHEN tp.name IN ('varchar', 'char', 'varbinary', 'binary', 'text') THEN
+                          WHEN tp.name IN ('varchar', 'char', 'varbinary', 'binary') THEN
                             '(' + CASE
                                     WHEN c.max_length = -1 THEN 'MAX'
                                   ELSE CAST(c.max_length AS VARCHAR(5))
