@@ -112,6 +112,7 @@ WHERE      a.type IN ('P', 'V', 'FN')
   AND      b.definition LIKE ( '%tt_ToolStockInDetail%' );
 
 --用修改方式打开这些存储过程、视图、函数，执行变更，即不需要改变内容，只是用alter方式执行修改即可
+--相当于重新编译存储过程
 
 --删除原表类型
 DROP TYPE dbo.tt_ToolStockInDetail_bak
