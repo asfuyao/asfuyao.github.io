@@ -19,7 +19,7 @@ tags:
 ```sql
 
 DECLARE @sqlstr NVARCHAR(MAX) = N'';
-DECLARE @TableName NVARCHAR(255) = N'PDefM_PS';
+DECLARE @TableName NVARCHAR(255) = N'表名';
 DECLARE @TableDesc NVARCHAR(255);
 DECLARE @ColumnName NVARCHAR(255);
 DECLARE @ColumnDesc NVARCHAR(255);
@@ -40,7 +40,7 @@ BEGIN
     SET @sqlstr = N'EXECUTE sys.sp_dropextendedproperty @name = N''MS_Description'', @level0type = N''USER'',';
     SET @sqlstr = @sqlstr + N'@level0name = N''dbo'',@level1type = N''TABLE'', @level1name = N''' + @TableName + N''',';
     SET @sqlstr = @sqlstr + N'@level2type = NULL, @level2name = NULL';
-
+    --删除表注释
     PRINT @sqlstr;
   END;
 
@@ -48,7 +48,7 @@ BEGIN
                 + N''',@level0name = N''dbo'',';
   SET @sqlstr = @sqlstr + N'@level0type = N''USER'',@level1type = N''TABLE'', @level1name = N''' + @TableName + N''',';
   SET @sqlstr = @sqlstr + N'@level2type = NULL, @level2name = NULL';
-
+  --创建表注释
   PRINT @sqlstr;
 END;
 
@@ -74,7 +74,7 @@ BEGIN
       SET @sqlstr = @sqlstr + N'@level1type = N''TABLE'', @level1name = N''' + @TableName
                     + N''', @level2type = N''COLUMN'',';
       SET @sqlstr = @sqlstr + N'@level2name = N''' + @ColumnName + N'''';
-
+      --删除列注释
       PRINT @sqlstr;
     END;
 
@@ -83,7 +83,7 @@ BEGIN
     SET @sqlstr = @sqlstr + N'@level0name = N''dbo'', @level1type = N''TABLE'', @level1name = N''' + @TableName
                   + N''',';
     SET @sqlstr = @sqlstr + N'@level2type = N''COLUMN'', @level2name = N''' + @ColumnName + N'''';
-
+    --创建列注释
     PRINT @sqlstr;
   END;
 
