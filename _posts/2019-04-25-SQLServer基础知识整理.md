@@ -158,6 +158,9 @@ GO
 ALTER TABLE dbo.Dev
 ADD CONSTRAINT PK_Dev_DevID PRIMARY KEY CLUSTERED( DevId );
 GO
+--删除主键
+ALTER TABLE dbo.Dev
+DROP CONSTRAINT PK_Dev_DevID;
 ```
 
 ### 3. 修改表和索引
