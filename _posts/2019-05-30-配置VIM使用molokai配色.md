@@ -18,10 +18,13 @@ tags:
 
 ```shell
 
+cd ~
 mkdir .vim
 cd .vim
 git clone https://github.com/tomasr/molokai.git
 cp -rf molokai/colors/ ./colors
 echo colorscheme molokai >> vimrc
+echo set t_Co=256 >> vimrc
+echo set background=dark  >> vimrc
 
 ```
