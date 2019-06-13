@@ -198,6 +198,15 @@ docker-compose up -d
 
 ```
 
+## 安装BBR内核，可选步骤，可以提高速度
+
+```shell
+
+wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+
+```
+安装完成后，脚本会提示需要重启 VPS，输入 y 并回车后重启。重启完成后，进入 VPS，验证一下是否成功安装最新内核并开启 TCP BBR，输入以下命令：`lsmod | grep bbr`。如果出现tcp_bbr字样表示bbr已安装并启动成功。
+
 ## 配置客户端
 
 * windows客户端：https://github.com/2dust/v2rayN
