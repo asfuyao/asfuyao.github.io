@@ -163,7 +163,7 @@ services:
     - ./config.json:/etc/v2ray/config.json #映射v2ray配置文件路径
     - ./log/v2ray:/var/log/v2ray #映射v2ray日志文件路径
     expose:
-    - "8002" #开发端口给容器，不对外开放
+    - "8002" #开放端口给容器，不对外开放
     restart: unless-stopped
   nginx:
     image: nginx:stable-alpine #nginx镜像名称
